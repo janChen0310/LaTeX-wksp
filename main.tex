@@ -1,0 +1,266 @@
+\documentclass[]{article}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{graphicx} 
+\usepackage{biblatex}
+
+\geometry{a4paper, scale = 0.9}
+\hypersetup{
+    hidelinks,
+	colorlinks=true,
+	allcolors=blue,
+	pdfstartview=Fit,
+	breaklinks=true
+} 
+\lstset{
+	basicstyle          =   \sffamily,          % 基本代码风格
+	keywordstyle        =   \bfseries,          % 关键字风格
+	commentstyle        =   \rmfamily\itshape,  % 注释的风格，斜体
+	stringstyle         =   \ttfamily,  % 字符串风格
+	flexiblecolumns,                
+	showspaces          =   false,  % 是否显示空格，显示了有点乱，所以不现实了
+	numberstyle         =   \zihao{-5}\ttfamily,    % 行号的样式，小五号，tt等宽字体
+	showstringspaces    =   false,
+	captionpos          =   t,      % 这段代码的名字所呈现的位置，t指的是top上面
+}
+
+\title{\ttfamily{\LaTeX \;Intro Manual}}
+\author{\ttfamily{jan\_chen}}
+\date{\ttfamily{September 2023}}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.5em}
+\linespread{1.0}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction to \LaTeX}
+
+LaTeX, which is pronounced 
+\textit{Lah-tech} or \textit{Lay-tech}, is a \textbf{document preparation system for high-quality typesetting}. It is most often used for medium-to-large technical or scientific documents but it can be used for almost any form of publishing. Using LaTeX can make your work look more professional and organized. Besides, it is also an useful tool to take notes that intensively involve formulae and symbols.
+
+\section{How to \LaTeX \quad?}
+
+\subsection{Begin with documentclass}
+The first command \verb|\documentclass[option]{class}| tells the compiler which kind of document class you'll choose. Specify the document class in \verb|{}|, such as \textbf{article}, \textbf{book}, \textbf{slides} or \textbf{ctexart} if you want to write in Chinese. However, \textbf{article} is the most commonly used class with some structural command:
+\begin{lstlisting}[basicstyle = \ttfamily]
+\part{}, \chapter{}, \section{}, \subsection{}, \subsection{} ...
+\end{lstlisting}
+Usually you don't need to care about the \textbf{option} parameter, which specifies the default font and aligning patterns. If you need to modify it, go Google yourself :P.
+\subsection{Include some useful syntax or tools in usepackage}
+The second command \verb|\usepackage{}| tells the compiler which \textbf{macro package} you want to include in your article. There are many useful functions defined in those packages, if you want use them, you need to include the package. Packages you almost always have to include: 
+
+\begin{itemize}
+    \item     The \textbf{asmmath}: defines many mathematical functions and environments.\\
+    Official documentation \href{https://www.ctan.org/pkg/amsmath}{here}
+\end{itemize}
+\begin{itemize}
+    \item The \textbf{graphicx}: defines the methods to insert images into your article.\\
+    Official documentation:
+    \href{https://www.ctan.org/pkg/graphicx}{here}
+\end{itemize}
+\begin{itemize}
+    \item The \textbf{geometry}: defines the methods to modify the paper layout of your article.\\
+    Official documentation:
+    \href{https://www.ctan.org/pkg/geometry}{here}
+\end{itemize}
+\begin{itemize}
+    \item The \textbf{array} or \textbf{booktabs}: defines the methods to make tables.\\
+    I think you have known where to find the official documentation :D.
+\end{itemize}
+\begin{itemize}
+    \item The \textbf{listings}: defines the methods to insert codes into your article.
+\end{itemize}
+\begin{itemize}
+    \item The \textbf{xcolor}: if you want to add some colors in your article.
+\end{itemize}
+Some packages require you to specify the overall settings before beginning document, don't forget that.
+\subsection{One last thing before starting to write}
+You should specify the \textbf{title}, \textbf{author} and \textbf{date} before starting your document. You can simply use \verb|\title{}|, \verb|\author{}| and \verb|\date{}| or start a title page by calling \verb|\begin{titlepage} & \end{titlepage}|, but we'll not discuss about it today.
+\subsection{Now we get start, formally}
+Call \verb|\begin{document}| to begin with your article (and remember to call \verb|\end{document}| when you finish it).\\
+Then make your title by calling \verb|\maketitle|. After that, we truly start.
+\subsubsection{Structural command}
+To make your article organized, you should make your article a clear structure.
+Make good use of \verb|\section{}|, \verb|\subsection{}| and \verb|\subsubsection{}|, where you can name the section title in the \verb|{}|.
+
+As default, each section will have its own number. To cancel the section number, use \verb|\section*{}| instead (this is a common way shared by many other environments).
+
+Besides, there are no indent before the first paragraph, if you want indent the first paragraph, use the \textbf{indentfirst} package.
+
+To set the paragraph patterns, use the \verb|\setlength{}{}| command (this command should be used before starting the document). 
+
+\begin{itemize}
+    \item \verb|\setlength{\parindent}{1em}| will set the indent size to be 1em
+\end{itemize}
+\begin{itemize}
+    \item \verb|\setlength{\parskip}{1em}| will set the paragraph skip to be 1em
+\end{itemize}
+\begin{itemize}
+    \item \verb|\setlength{\baselineskip}{1em}| will set the line skip to be 1em (if this doesn't work, try \verb|\linespread{2.0}|, which will set the line skip two times the normal size)
+\end{itemize}
+
+(you may want to find out the exact size of 1em by yourself and other scales)
+
+There are several ways to start a new paragraph. You can use \verb|\par| to do it or leave a blank line in your code to separate each paragraph. To simply start a new line, add \verb|\\| at the end of the last line.
+
+\subsubsection{Add math to your work}
+
+All math formulae and symbols can only be displayed in \textbf{math environment}. The simplest way to create math environment is using \verb|$|. \verb|$equation$| will insert inline math equation and \verb|$$equations$$| will insert equations between lines. If you want to generate equations with equation numbers, you can use \verb|\begin{equation}| (to cancel it, add *).
+
+However, in the \textbf{equation} environment, you can not start a new line. If you want to insert multiple lines of equations, try \verb|\begin{align}|, where you are allowed to use \verb|\\| to start new lines. Besides, \textbf{align} environment also enables you to literally 'align' your equations. To achieve this, add \verb|&| in your equations to specify to which symbol you want latex to align them.
+
+Most of the math functions are in the form of \verb|\func{}{}|, where you can put numbers or symbols in the \verb|{}|. E.g. \verb|\frac{a}{b}| will generate $\frac{a}{b}$. \LaTeX \;has embedded plenty of math functions and symbols, we'll not name them in this manual but you can still Google them yourself. 
+
+Other math environments:
+\begin{itemize}
+    \item \verb|\begin{gather}|: the equations will be center aligned
+\end{itemize}
+\begin{itemize}
+    \item \verb|\begin{split}|: give one number to several lines of equations (need to be embedded within equation environment)
+\end{itemize}
+\begin{itemize}
+    \item \verb|\begin{cases}|: use a \verb|{| to list all the cases
+\end{itemize}
+\begin{itemize}
+    \item \verb|\begin{math}|: more general, like \verb|\begin{align}| but no numbers
+\end{itemize}
+
+The textual rule in math environments is quite different from others. If you want to insert some textual explanation into your equations, please use \verb|\text{}| (this command is included in \textbf{amsmath} package). 
+
+Math environments don't support blank space either. If you want to insert spaces, use \verb|\quad| or \verb|\qquad| (there are other types of blank which we don't mention here).
+
+\subsubsection{Insert pictures}
+
+Before inserting pictures, make sure you have included the \textbf{graphicx} package.
+
+Here is an example:
+\begin{lstlisting}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[scale = 0.5]{image.png}
+            \caption{Image}
+            \label{1}
+        \end{figure}[htbp]
+\end{lstlisting}
+
+Firstly, use \verb|\begin{figure}[]| to create a floating figure environment. You can specify the position of the figure in the \verb|[]|. The common input is \verb|[htbp]| where 
+\begin{itemize}
+    \item \textbf{h} means placing the figure at the current position, if the current page doesn't have enough space, this option won't work
+\end{itemize}
+\begin{itemize}
+    \item \textbf{t} means placing the figure at the top of the page
+\end{itemize}
+\begin{itemize}
+    \item \textbf{b} means placing the figure at the bottom of the page
+\end{itemize}
+\begin{itemize}
+    \item \textbf{p} means placing the figure at any page that allows 
+\end{itemize}
+if \textbf{h} is not satisfied, then \textbf{t}, then \textbf{b} and at last \textbf{p}. (Actually, latex will always follow this order)
+
+However, if you definitely want your figure to be inserted at the current place, include \textbf{float} package and use \verb|[H]| instead of \verb|[htbp]|
+
+The \verb|\centering| command will center align the image.
+
+The \verb|\includegraphics[]{}| is where you tell the compiler which image to choose. Remember, you have to \textbf{save the image file under the folder of the latex project}. Input the \textbf{relative path} of the file in \verb|{}| and other options in \verb|[]| such as the size or the scale of the image.
+
+The \verb|\caption{}| command will give your image a title and \verb|\label{}| will label your image so that you can cite the image later using \verb|\ref{}|
+
+\subsubsection{Create tables}
+
+First you should know that there are many latex table generators in the Internet, try to use them will save you a lot of time. The one I recommend is the \textit{Tables Generator}, click \href{https://www.tablesgenerator.com/}{here} to know more. It is a powerful table generator, which can also generate \textbf{MarkDown} tables :D, it is free, of course.
+
+Here is the code of a table generate by TG, you can copy and try to generate a table by yourself:
+\begin{lstlisting}
+        \begin{table}[]
+        \centering
+        \begin{tabular}{|lll|}
+        \hline
+             & column1 & column2 \\ \hline
+        row1 & a       & b       \\ \hline
+        row2 & c       & d       \\ \hline
+        \end{tabular}
+        \caption{MyTable}
+        \label{tab:my-table}
+        \end{table}
+\end{lstlisting}
+
+
+As you can see, some options are similar to inserting pictures. The \begin{lstlisting}
+    \begin{tabular}{|l l l|}
+\end{lstlisting}
+
+command tells the compiler to generate a table with 3 columns, each of which is aligned left. If you want them to be center aligned, use 
+\begin{lstlisting}
+    \begin{tabular}{|c c c|}
+\end{lstlisting}
+
+The \verb|\hline| command insert a horizontal line separate each row (you can call this command multiple times). The \verb|&| tells the compiler which element belongs to which column. 
+
+Above is the most common way to create tables (and powerful enough), still, there are more options where you can find on TG website or in the internet, we won't elaborate them here.
+
+\subsubsection{Notations and citations}
+
+Remember you have label the pictures and tables before? Now it's time to cite them. 
+
+Use \verb|\ref{}| to cite the pictures and tables wherever you want. The label name should be consistent with the ref name. If you write a huge article and it's hard to find where the source is, use \verb|\pageref{}| to cite the page number of the source. Note that \verb|\label{}| can not only be applied to figures and tables, it can also label equations.
+
+If you want to cite hyperlink in your article, use \textbf{hyperref} package, which contains many options for citing links (for details, refer to official documents or search the internet). The commonly used one is \verb|\href{URL}{text}| where you can create a hyperlink hidden behind the text. Or you can use \verb|\url{URL}| for a single link.
+
+To insert footnote, simply use \verb|\footnote{}|. To set margin note, use \verb|\marginpar{}|.
+
+If you want to cite other's work, you need to create a reference list. There are two ways for you to do this.
+
+\begin{itemize}
+    \item Not use BibTeX: use \verb|\begin{\thebibliography{}}| to create a bibliography environment. First, specify the maximum number of reference in the \verb|{}|. Then, use \verb|\bibitem[]{}|to add a reference. Specify the ref name in the \verb|{}| and the reference information after that command (Note that this method doesn't provide a standard reference pattern, you should take care of it yourself).
+\end{itemize}
+\begin{itemize}
+    \item Use BibTeX\footnote{BibTeX is a bibliography manage tool, a BibTeX-style file ends with .bib which can be seen as a bibliography library}: Firstly, you should create a .bib file, say \textit{ref.bib}, which will contain the information of the bibs. In the .bib file record the bib like this:
+    
+    \begin{minipage}[t]{0.5\linewidth}
+        \begin{lstlisting}
+        @article{name1, %the name of this ref
+        author = {Authors, connected with 'and'
+        if there are many},
+        title = {Title},
+        journal = {Journal name},
+        volume = {volume n},
+        number = {page number},
+        year = {published year},
+        abstract = {not necessary}
+        }
+    \end{lstlisting}
+    \end{minipage}
+    \begin{minipage}[t]{0.5\linewidth}
+        \begin{lstlisting}
+            @book{name2,
+            author = "",
+            year = "",
+            title = "",
+            publisher = ""
+            }
+        \end{lstlisting}
+    \end{minipage}
+    
+Then save the .bib file under the same folder of the latex project.
+
+At last, insert two commands before ending the document:
+\begin{itemize}
+    \item \verb|\bibliographystyle{plain}|: specify the reference format, multiple choices, search by yourself.
+\end{itemize}
+\begin{itemize}
+    \item \verb|\bibliography{ref}|: insert the bib, here the \textbf{ref} corresponds to the name of the .bib file.
+\end{itemize}
+Now you can use \verb|\cite{]| in your article to cite other's works.
+\end{itemize}
+\section{Before The End}
+
+\LaTeX \;is really a powerful document preparation system. There is a great deal of other beautiful functions waiting for you to explore. This manual only contains the most basic syntax of \LaTeX \;but I hope it could help you to introduce to it and arouse your interest in high-quality digital writing, though there are still many flaws in this document since I'm neither a professional \LaTeX\; user \ttfamily{XD}. Thanks!
+
+\end{document}
