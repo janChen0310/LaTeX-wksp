@@ -7,9 +7,9 @@
 \usepackage{graphicx} 
 \usepackage{biblatex}
 
-\geometry{a4paper, scale = 0.9}
+\geometry{a4paper, scale = 0.8}
 \hypersetup{
-    hidelinks,
+        hidelinks,
 	colorlinks=true,
 	allcolors=blue,
 	pdfstartview=Fit,
@@ -38,13 +38,14 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 \section{Introduction to \LaTeX}
 
 LaTeX, which is pronounced 
 \textit{Lah-tech} or \textit{Lay-tech}, is a \textbf{document preparation system for high-quality typesetting}. It is most often used for medium-to-large technical or scientific documents but it can be used for almost any form of publishing. Using LaTeX can make your work look more professional and organized. Besides, it is also an useful tool to take notes that intensively involve formulae and symbols.
 
-\section{How to \LaTeX \quad?}
+\section{How to \LaTeX }
 
 \subsection{Begin with documentclass}
 The first command \verb|\documentclass[option]{class}| tells the compiler which kind of document class you'll choose. Specify the document class in \verb|{}|, such as \textbf{article}, \textbf{book}, \textbf{slides} or \textbf{ctexart} if you want to write in Chinese. However, \textbf{article} is the most commonly used class with some structural command:
@@ -79,6 +80,9 @@ The second command \verb|\usepackage{}| tells the compiler which \textbf{macro p
 \begin{itemize}
     \item The \textbf{xcolor}: if you want to add some colors in your article.
 \end{itemize}
+\begin{itemize}
+    \item The \textbf{ctex}: if you want type Chinese.
+\end{itemize}
 Some packages require you to specify the overall settings before beginning document, don't forget that.
 \subsection{One last thing before starting to write}
 You should specify the \textbf{title}, \textbf{author} and \textbf{date} before starting your document. You can simply use \verb|\title{}|, \verb|\author{}| and \verb|\date{}| or start a title page by calling \verb|\begin{titlepage} & \end{titlepage}|, but we'll not discuss about it today.
@@ -108,6 +112,8 @@ To set the paragraph patterns, use the \verb|\setlength{}{}| command (this comma
 (you may want to find out the exact size of 1em by yourself and other scales)
 
 There are several ways to start a new paragraph. You can use \verb|\par| to do it or leave a blank line in your code to separate each paragraph. To simply start a new line, add \verb|\\| at the end of the last line.
+
+If you want to insert a catalogue into your work, you can use \verb|\tableofcontents| to automatically generate one. The effect is like the \textit{Contents} part of the current document. The catalogue will include all sections as default. 
 
 \subsubsection{Add math to your work}
 
@@ -262,5 +268,12 @@ Now you can use \verb|\cite{]| in your article to cite other's works.
 \section{Before The End}
 
 \LaTeX \;is really a powerful document preparation system. There is a great deal of other beautiful functions waiting for you to explore. This manual only contains the most basic syntax of \LaTeX \;but I hope it could help you to introduce to it and arouse your interest in high-quality digital writing, though there are still many flaws in this document since I'm neither a professional \LaTeX\; user \ttfamily{XD}. Thanks!
+
+\begin{thebibliography}{10}
+    \bibitem[1]{}https://www.ctan.org/pkg/amsmath
+    \bibitem[2]{}https://www.ctan.org/pkg/graphicx
+    \bibitem[3]{}https://www.ctan.org/pkg/geometry
+    \bibitem[4]{}https://www.tablesgenerator.com/
+\end{thebibliography}
 
 \end{document}

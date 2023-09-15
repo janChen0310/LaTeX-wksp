@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Introduction to \LaTeX }{1}{section.1}%
+\contentsline {section}{\numberline {2}How to \LaTeX }{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Begin with documentclass}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Include some useful syntax or tools in usepackage}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}One last thing before starting to write}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Now we get start, formally}{2}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Structural command}{2}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Add math to your work}{3}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Insert pictures}{3}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Create tables}{4}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Notations and citations}{5}{subsubsection.2.4.5}%
+\contentsline {section}{\numberline {3}Before The End}{5}{section.3}%
