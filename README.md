@@ -3,6 +3,7 @@
 ## LaTeX简介
 * 了解LaTeX请参考[这篇文章](https://zhuanlan.zhihu.com/p/109112200)
 * 了解MiKTeX和TeX Live请参考[这篇文章](https://www.cnblogs.com/liuliang1999/p/12656706.html)
+* 了解LaTeX(TeX)底层工作原理请参考[这个](https://www.zhihu.com/question/327762196)
 
 ## LaTeX本地安装与配置（这里推荐使用VS Code编辑）
 * TeX Live + VS Code 参考[这篇文章](https://zhuanlan.zhihu.com/p/166523064)
